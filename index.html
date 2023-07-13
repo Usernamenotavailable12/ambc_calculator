@@ -88,15 +88,13 @@
     });
   
     copyButton.addEventListener('click', () => {
-  const textToCopy = resultDiv.textContent.split(': ')[1];
-
-  try {
-    navigator.clipboard.writeText(textToCopy);
-    alert('ტექსტი დაკოპირდა');
-  } catch (error) {
-    console.error('Error copying text: ', error);
-  }
-});
+      const textToCopy = resultDiv.textContent.split(': ')[1];
+  
+      navigator.clipboard.writeText(textToCopy)
+        .catch((error) => {
+          console.error('Error copying text: ', error);
+        });
+    });
   </script>
 </body>
 </html>
